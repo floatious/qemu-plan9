@@ -65,6 +65,7 @@ make olddefconfig
 ./scripts/config --enable CONFIG_VIRTIO_PCI
 ./scripts/config --enable CONFIG_PCI
 ./scripts/config --enable CONFIG_VIRTIO_BLK
+./scripts/config --enable CONFIG_VIRTIO_NET
 make olddefconfig
 make -j$(nproc)
 ```
