@@ -18,5 +18,4 @@ $QEMU_BINARY -m $RAM -cpu host -smp $(nproc) -enable-kvm -nographic \
              -device virtio-9p-pci,fsdev=test_dev,mount_tag=tag_modules \
              -kernel $KERNEL \
              -append "console=ttyS0 root=/dev/vda3 rootflags=subvol=root net.ifnames=0 nokaslr oops=panic panic=0" \
-             -device virtio-net-pci,netdev=usernet \
-             -netdev user,id=usernet,hostfwd=tcp::$QEMU_GUEST_SSH_FWD_PORT-:22
+             -net nic,model=virtio -net user,hostfwd=tcp::$QEMU_GUEST_SSH_FWD_PORT-:22
