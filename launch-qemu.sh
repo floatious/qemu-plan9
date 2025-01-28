@@ -22,4 +22,6 @@ exec $QEMU_BINARY -m $RAM -cpu host -smp $(nproc) -enable-kvm -nographic \
 	-device virtio-9p-pci,fsdev=test_dev,mount_tag=tag_modules \
 	-kernel $KERNEL \
 	-append "console=ttyS0 root=/dev/vda3 rootflags=subvol=root net.ifnames=0 nokaslr oops=panic panic=0" \
-	-net nic,model=virtio -net user,hostfwd=tcp::$QEMU_GUEST_SSH_FWD_PORT-:22
+	-net nic,model=virtio -net user,hostfwd=tcp::$QEMU_GUEST_SSH_FWD_PORT-:22 \
+	-drive driver=null-co,read-zeroes=on,latency-ns=50000000,if=none,id=disk \
+	-device ich9-ahci,id=ahci -device ide-hd,drive=disk,bus=ahci.0
