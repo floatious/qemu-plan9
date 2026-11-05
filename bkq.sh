@@ -7,7 +7,7 @@ if [ ! -e ".git" ]; then
 	echo ""
 	echo "while standing in your kernel directory:"
 	echo ""
-	echo "usage: bqk.sh"
+	echo "usage: bkq.sh"
 	exit
 fi
 
