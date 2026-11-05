@@ -20,5 +20,5 @@ rm -rf tmp-modules/lib/modules/*
 # appending -dirty or + to the kernel version string. If we do not do this, the
 # kernel modules (which uses the kernel version string) might get installed to a
 # directory that does not match the kernel version string of the running kernel.
-make -j$(nproc) LOCALVERSION=
+make -j$(nproc) LOCALVERSION= all compile_commands.json
 make -j$(nproc) -s modules_install INSTALL_MOD_PATH=tmp-modules INSTALL_MOD_STRIP=1 LOCALVERSION=
